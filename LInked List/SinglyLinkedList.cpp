@@ -15,24 +15,6 @@ public:
     }
 };
 
-void insertAtTail(node *&head, int val)
-{
-    node *n = new node(val);
-
-    if (head == NULL)
-    {
-        head = n;
-        return;
-    }
-
-    node *temp = head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-    temp->next = n;
-}
-
 void insertAtHead(node *&head, int val) // doubt
 {
     node *n = new node(val);
@@ -45,6 +27,26 @@ void insertAtHead(node *&head, int val) // doubt
 
     n->next = head;
     head = n;
+}
+
+void insertAtTail(node *&head, int val)
+{
+
+    if (head == NULL)
+    {
+        // head = n;
+        insertAtHead(head, val);
+        return;
+    }
+
+    node *n = new node(val);
+
+    node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = n;
 }
 
 bool search(node *head, int key)
@@ -65,6 +67,7 @@ void deleteByNodeValue(node *&head, int key)
 {
     if (head == NULL)
     {
+        cout << "Empty LL";
         return;
     }
 
@@ -221,7 +224,7 @@ int main()
     // display(newhead);
     // insertInBetween(head, 5, 80);
     // insertAfter(head, 80, 90);
-    deleteByNodeValue(head, 9);
+    deleteByNodeValue(head, 7);
     display(head);
     // deleteion(head, 1);
     // node *newhead = reverseLL(head);
