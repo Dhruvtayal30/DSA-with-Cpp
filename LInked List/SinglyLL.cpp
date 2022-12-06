@@ -209,12 +209,12 @@ int main()
 {
     node *head = NULL; // doubt
     insertAtTail(head, 1);
-    insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
-    insertAtTail(head, 5);
-    insertAtTail(head, 6);
-    insertAtTail(head, 7);
+    // insertAtTail(head, 2);
+    // insertAtTail(head, 3);
+    // insertAtTail(head, 4);
+    // insertAtTail(head, 5);
+    // insertAtTail(head, 6);
+    // insertAtTail(head, 7);
 
     // insertAtHead(head, 6);
     display(head);
@@ -224,7 +224,7 @@ int main()
     // display(newhead);
     // insertInBetween(head, 5, 80);
     // insertAfter(head, 80, 90);
-    deleteByNodeValue(head, 7);
+    deleteByNodeValue(head, 1);
     display(head);
     // deleteion(head, 1);
     // node *newhead = reverseLL(head);

@@ -53,31 +53,98 @@ void insertAtTail(node *&head, int val)
     n->next = head;
 }
 
+void deleteAtHead(node *&head)
+{
+    if (head == NULL)
+    {
+        cout << "Empty LL";
+        return;
+    }
+    node *temp = head;
+    while (temp->next != head)
+    {
+        temp = temp->next;
+    }
+
+    node *todelete = head;
+    temp->next = head->next;
+    head = head->next;
+
+    delete todelete;
+}
+
+void deleteANodeByValue(node *&head, int key)
+{
+    if (head == NULL)
+    {
+        cout << "Empty LL";
+        return;
+    }
+
+    if (head->data == key)
+    {
+        // node *temp = head;
+        deleteAtHead(head);
+        return;
+    }
+
+    node *temp = head;
+    while (temp->next->data != key) //  && temp->next != head)
+    {
+        temp = temp->next;
+    }
+    node *todelete = temp->next;
+    temp->next = temp->next->next;
+    delete todelete;
+}
+
 void display(node *head)
 {
     node *temp = head;
+
+    // while (temp->next != head)
+    // {
+    //     cout << temp->data << "->";
+    //     temp = temp->next;
+    // }
 
     do
     {
         cout << temp->data << "->";
         temp = temp->next;
-    } while (temp->next != head);
-    // cout << temp->data;
+    } while (temp != head);
+    // cout << temp->data << "->";
     cout << "Head" << endl;
 }
+
 int main()
 {
     node *head = NULL;
 
+    // insertAtHead(head, 0);
     insertAtHead(head, 0);
     insertAtTail(head, 1);
     insertAtTail(head, 2);
     insertAtTail(head, 3);
+    display(head);
 
     insertAtHead(head, 4);
     insertAtHead(head, 5);
-
     display(head);
+
+    // deleteANodeByValue(head, 0);
+    // display(head);
+    // deleteANodeByValue(head, 1);
+    // display(head);
+    // deleteANodeByValue(head, 2);
+    // display(head);
+    // deleteANodeByValue(head, 3);
+    // display(head);
+    // deleteANodeByValue(head, 4);
+    // display(head);
+    // deleteANodeByValue(head, 5);
+    // // deleteAtHead(head);
+    // display(head);
 
     return 0;
 }
